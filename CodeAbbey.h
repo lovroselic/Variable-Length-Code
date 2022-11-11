@@ -13,5 +13,7 @@ std::vector<int> splitToInt(std::string str, const std::string separator);
 std::vector<int> splitToInt(std::string str);
 std::string Compact(std::string str);
 std::string Pack(std::vector<std::string>& cell);
+std::string StringToUpper(std::string str);
+std::vector<std::string> IntToHex(std::vector<int>& ints);
 
 #endif // !CODEABBEY

@@ -24,15 +24,12 @@ using std::chrono::milliseconds;
 
 map<string, string> CodingMap();
 vector<int> VL_Code(string str, map<string, string> codeMap);
-std::vector<std::string> IntToHex(std::vector<int>& ints);
-std::string StringToUpper(std::string str);
-
 
 int main() {
 	auto t1 = high_resolution_clock::now();
 	cout << "VLC v" << VERSION << "!\n\n";
-	string path = "Test.txt";
-	//string path = "Try.txt";
+	//string path = "Test.txt";
+	string path = "Try.txt";
 	vector<string> raw_data = loadData(path);
 	string problem = raw_data[0];
 	cout << "problem: " << problem << endl;
@@ -102,27 +99,4 @@ vector<int> VL_Code(string str, map<string, string> codeMap) {
 		codes.push_back(stoi(byte, nullptr, 2));
 	}
 	return codes;
-}
-
-std::vector<std::string> IntToHex(std::vector<int>& ints) {
-	std::vector<std::string> hexs;
-
-	for (auto& i : ints) {
-		std::ostringstream ss;
-		ss.width(2);
-		ss.fill('0');
-		ss << std::hex << i;
-		std::string result = ss.str();
-		hexs.push_back(StringToUpper(result));
-	}
-
-	return hexs;
-}
-
-std::string StringToUpper(std::string str) {
-	string strUp = "";
-	for (auto& c : str) {
-		strUp += std::toupper(c);
-	}
-	return strUp;
 }

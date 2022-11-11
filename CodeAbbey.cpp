@@ -1,6 +1,6 @@
 /*
 	selection of helper functions
-	v0.5
+	v0.6
 */
 
 #include <iostream>
@@ -142,4 +142,25 @@ std::string Pack(std::vector<std::string>& cell) {
 	compacted += pchar;
 
 	return compacted;
+}
+std::string StringToUpper(std::string str) {
+	std::string strUp = "";
+	for (auto& c : str) {
+		strUp += std::toupper(c);
+	}
+	return strUp;
+}
+std::vector<std::string> IntToHex(std::vector<int>& ints) {
+	std::vector<std::string> hexs;
+
+	for (auto& i : ints) {
+		std::ostringstream ss;
+		ss.width(2);
+		ss.fill('0');
+		ss << std::hex << i;
+		std::string result = ss.str();
+		hexs.push_back(StringToUpper(result));
+	}
+
+	return hexs;
 }
